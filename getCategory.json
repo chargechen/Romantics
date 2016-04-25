@@ -1,0 +1,5 @@
+{
+ "scene":[{"id":1,"name":"求婚"},{"id":2,"name":"表白"},{"id":3,"name":"追求"},{"id":4,"name":"约会"}],
+ "style":[{"id":0,"name":"全部"},{"id":1,"name":"高端大气上档次"},{"id":2,"name":"低调浪漫有内涵"}],
+ "canShowReview":1
+}

@@ -1,0 +1,187 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<meta name="MobileOptimized" content="320">
+		<title>史上最有创意的求婚点子</title>
+		<link href="article.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+        <img src="http://17memeda.com/IDEA/resource/4/bb1_005.jpg" width="0" height="0" />
+		<div id="article"></div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div id="download" class="qt_bottom_bar">
+			<div class="thumb">
+				<img src="http://17memeda.com/IDEA/resource/3/download.jpg">
+			</div>
+			<a href="javascript:void 0;" class="qt_bottom_bar_close">×</a>
+		</div>
+        <!--微信弹框提示-->
+    <div id="share-tip" style="display: none; position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.7);z-index: 1000000;">
+        <div id="share-tip-bg" style="border-radius:0 0 15px 15px;position: relative;z-index: 1000001;margin: 0 10px;max-width: 700px;text-align: center;background: #fff;height: 123px;">
+            <img id="share-tip-android" style="width: 300px;height: 122.5px;margin: 0 auto;" src="http://17memeda.com/IDEA/Article/resource/wechat_tip_android.png">
+            <img id="share-tip-ios" style="width: 300px;height: 122.5px;margin: 0 auto;" src="http://17memeda.com/IDEA/Article/resource/wechat_tip_ios.png">
+        </div>
+    </div>
+
+	<script src="zepto.min.js"></script>
+		<script>
+		    // var shareTitle = '史上最有创意的求婚点子';
+      //       var shareData = {
+      //           "imgUrl": "http://17memeda.com/IDEA/resource/4/bb1_005.jpg",
+      //           "timeLineLink": window.location.href,
+      //           "tTitle":'最有创意的求婚点子',
+      //           "tContent": ''
+      //       };
+
+      //       function onBridgeReady() {
+
+      //           WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+      //             WeixinJSBridge.invoke('sendAppMessage', {
+      //               'content':'',
+      //               'desc': shareData.tContent,
+      //               'img_height' : "120",
+      //               'img_url': shareData.imgUrl,
+      //               'img_width' : "120",
+      //               'link': shareData.timeLineLink,
+      //               'title': shareData.tTitle,
+      //               'type':'link'
+      //             }, function(res) {
+      //               })
+      //           });
+
+      //           WeixinJSBridge.on('menu:share:timeline', function(argv) {
+      //             WeixinJSBridge.invoke('shareTimeline', {
+      //               "img_url": shareData.imgUrl,
+      //               "img_width": "120",
+      //               "img_height": "120",
+      //               "link": shareData.timeLineLink,
+      //               "desc": shareData.tContent,
+      //               "title": shareData.tTitle
+      //             }, function(res) {
+      //               });
+      //           });
+
+
+      //           WeixinJSBridge.on('menu:share:weibo', function(argv) {
+      //             WeixinJSBridge.invoke('shareWeibo', {
+      //               "content": shareData.tContent,
+      //               "url": shareData.timeLineLink
+      //             }, function(res) {
+      //               });
+      //           });
+      //       }
+
+      //   if (typeof WeixinJSBridge === "undefined"){
+      //           if (document.addEventListener){
+      //               document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+      //           }
+      //           else if(document.attachEvent){
+      //               document.attachEvent('WeixinJSBridgeReady'   , onBridgeReady);
+      //               document.attachEvent('onWeixinJSBridgeReady' , onBridgeReady);
+      //           }
+      //   }
+      //   else{
+      //           onBridgeReady();
+      //   }
+
+	    function getUrlParam(name)
+		{
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+				var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+				if (r!=null) return unescape(r[2]); return null; //返回参数值
+		} 
+		var pageId = getUrlParam("pageId");
+		$.ajax({type:'get',url:'Article/'+ pageId +'.txt',success:function(str){
+			shareTitle = /<subtitle>(.*?)<\/subtitle>/.exec(str)[1];
+			str = '<div>' + str +'</div>';
+
+			// str = str.replace(/\n/g,"<br/>");
+      str = str.replace(/\n/g,"<div style='height:10px;line-height:10px;filter:alpha(opacity=0); opacity: 0;'>浪漫点子网www.17memeda.com</div>");
+		 	str = str.replace(/<_bullet>(.*?)<\/_bullet>/g, "<h4>$1</h4>");
+            str = str.replace(/<colored>(.*?)<\/colored>/g, "<span style='color:red;'>$1</span>");
+			str = str.replace(/<subtitle>(.*?)<\/subtitle>/g, "<h1>$1</h1>");
+			str = str.replace(/<_image>(.*?)<\/_image>/g, "<img class='articleImg' src='$1'/>");
+			str = str.replace(/<_link>(.*?)\|(.*?)<\/_link>/g, "<a target='_blank' href='$1' title='$2'>$2</a>");
+			$('#article').html(str);
+			$(".qt_bottom_bar_close").on("click",function(e){$(".qt_bottom_bar").hide()});
+
+            if(isWeixinBrowser()){
+                var _itemInfoBtn = document.getElementsByTagName('a'),
+                    _shareCC = document.getElementById('share-tip'),
+                    _shareC = document.getElementById('share-tip-bg'),
+                    _shareIOS = document.getElementById('share-tip-ios'),
+                    _shareAndroid = document.getElementById('share-tip-android'),
+                    _w = window.innerWidth,
+                    _h = window.innerHeight,
+                    _scale = _w / _h;
+                    _shareCC.onclick = function(){
+                     _shareCC.style.display = 'none';
+                    }
+                for(var i = 0; i < _itemInfoBtn.length; i++){
+                     _itemInfoBtn[i].onclick = function(){
+//                    alert(_w + ' ddd' + _h + ' ddd' + _scale);
+                        event.preventDefault();
+                        _shareCC.style.display = 'block';
+                        var ua = navigator.userAgent.toLowerCase();
+                        if (/(iphone|ipod)/i.test(ua)) {
+                            _shareIOS.style.display = 'block';
+                            _shareAndroid.style.display = 'none';
+                        }else if(/(ipad)/i.test(ua)) {
+                            _shareC.style.margin = '0 auto'
+                            _shareAndroid.style.display = 'none';
+                            _shareIOS.style.display = 'block';
+                            _shareIOS.style.position = 'absolute';
+                            _shareIOS.style.right = '0px';
+                        }else if(_w < 700){
+                            _shareIOS.style.display = 'none';
+                            _shareAndroid.style.display = 'block';
+                        }else{
+                            _shareC.style.margin = '0 auto'
+                            _shareIOS.style.display = 'none';
+                            _shareAndroid.style.display = 'block';
+                            _shareAndroid.style.position = 'absolute';
+                            _shareAndroid.style.right = '0px';
+                        }
+                    }
+                }
+            }
+
+			document.title = shareTitle;
+            // shareData.tTitle = shareTitle;
+            // shareData.imgUrl = "http://17memeda.com/IDEA/resource/4/bb1_005.jpg";
+
+		}});
+		
+
+		
+
+$("#download").on("click",function(e){
+                    var ua = navigator.userAgent.toLowerCase();
+                    if (/(iphone|ipod)/i.test(ua)) {
+                        redirectDownloadPage();
+
+                    }else if(/(ipad)/i.test(ua)) {
+                        redirectDownloadPage();
+                    }else{
+                      alert("点子说暂时只有iphone版本~");
+                    }
+            });
+ 		function redirectDownloadPage(){
+
+			document.location = 'http://17memeda.com/IDEA/goToAppStore.html';
+        }
+
+        function isWeixinBrowser(){
+            var ua = navigator.userAgent.toLowerCase();
+            return (/micromessenger/.test(ua)) ? true : false ;
+        } 
+    
+		</script>
+	</body>
+</html>

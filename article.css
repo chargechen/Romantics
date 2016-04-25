@@ -1,0 +1,58 @@
+html, body, span, div, p, a, table, tbody, td, h1, h2, h3, h4, h5, img, form, font, strong, b, i, dl, dt, dd, ol, ul, li, dl, dd, dt, iframe, label, blockquote, input, button {padding:0; margin:0;list-style: none;font-size:inherit;}
+
+body {padding:10px;line-height:1.4em;font-size:13px;font-family:"Gotham-Medium",Helvetica,Arial;color:#333;background:#fff;}
+img {vertical-align:middle; border:none;}
+header,nav,section,article {display:block;}
+input, button, select, textarea{vertical-align:middle;outline:none;}
+textarea{resize:none}
+
+h1 {font-size: 18px;}
+div, p {font-size: 16px; line-height: 24px;}
+img.articleImg{display: block; margin: 10px auto; width: 300px;height: 150px;}
+bold {font-weight: bold;}
+a {text-decoration:underline;}
+a:link {color:blue;text-decoration:underline;}
+a:visited {color:blue;}
+a:hover {color:#333335;}
+a.bluelink:link {color:#2f87ff;text-decoration:underline;}
+a.bluelink:visited {color:#2f87ff;}
+a.bluelink:hover {color:#f60;}
+.gray {color:#999;}
+.qt_bottom_bar {position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+font-size: 0px;
+text-align:left;}
+.qt_bottom_bar .thumb a {
+display: block;
+font-size: 0px;
+position: relative;
+z-index: 2;
+}
+.qt_bottom_bar img {
+width: 100%;
+margin: 0;
+height: auto;
+display: block;
+}
+a.qt_bottom_bar_close {
+position: absolute;
+left: 0px;
+top: -20px;
+font-size: 20px;
+color: #666;
+z-index: 3;
+width: 20px;
+height: 20px;
+width: 40px;
+height: 40px;
+background: #fff;
+line-height: 40px;
+font-size: 30px;
+text-align: center;
+border-radius: 90px;
+text-decoration: none;
+}
+.clearfix:after {visibility:hidden;display:block;font-size:0;content:"";clear:both;height:0;}
+.clearfix {zoom:1;}
